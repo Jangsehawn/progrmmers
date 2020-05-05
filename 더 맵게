@@ -1,0 +1,12 @@
+import heapq
+def solution(scoville, K):
+    que =[]
+    answer=0
+    for i in range(len(scoville)):
+        heapq.heappush(que,scoville[i])     
+    while que[0] < K:
+        try: heapq.heappush(que, heapq.heappop(que) + (heapq.heappop(que) * 2))
+        except IndexError:
+              return -1
+        answer+=1    
+    return answer
