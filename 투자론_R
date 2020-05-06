@@ -1,0 +1,47 @@
+#R로 짠 투자론 계산을 도와주는 코드입니다
+
+#3개주식 포폴의 분산
+w=matrix(c(0.5,0.3,0.2),ncol=3)#투자비율
+w
+a=matrix(c(100,100,90,100,400,120,90,120,900),ncol=3)#공분산행렬
+a
+w%*%a%*%t(w)#분산
+# 3개주식 공헌도
+x=1
+sum=0
+for( i in 1:3){#x번째 주식 공헌도 구하기
+  print(w[x,1]*w[x,i]*a[x,i])
+  sum=sum+w[x,1]*w[x,i]*a[x,i]
+}
+sum#x번째 주식 공헌도
+sum/w%*%a%*%t(w)#x번째 주식 공헌비율 ->%로 바꾸기
+
+
+r2=matrix(c(0,20))
+r3=matrix(c(20,0))
+cor(r2,r3)
+
+
+#포트폴리오의 기대수익률과 수익률의 표준편차
+r1=10
+r2=15
+sigma1=10
+sigma2=20
+p12=0.5
+#w1=(sigma2^2-p12*sigma1*sigma2)/(sigma1^2+sigma2^2-2*p12*sigma1*sigma2)  #최소분산 비율
+#w1
+#w2=1-w1#최소분산 비율
+#w2
+w1=0.8
+w2=0.2
+erp=w1*r1+w2*r2 
+erp
+sigma_p=sqrt(w1^2*sigma1^2+w2^2*sigma2^2+2*w1*w2*p12*sigma1*sigma2)
+sigma_p
+
+# n개 주식포트폴리오의 위험분산, 투자비율 균등
+sigma_mean=1200
+cov_mean=225
+n=16
+sigma_2_p=(1/n)*(sigma_mean-cov_mean)+cov_mean #포프톨리오의 분산
+sigma_2_p
