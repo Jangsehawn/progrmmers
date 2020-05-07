@@ -1,0 +1,8 @@
+#input = 5 3
+#*****<-output
+#*****
+#*****
+
+a, b = map(int, input().strip().split(' '))
+for i in range(b):
+    print('*' *a )
