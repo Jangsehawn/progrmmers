@@ -1,0 +1,11 @@
+#10871
+n,x=input().split()
+integer=input().split()
+x=int(x)
+n=int(n)
+a=[]
+for i in range(0,n+1):
+    integer[i]=int(integer[i])
+    a.append(integer[i])
+    if a[i] < x :
+        print(a[i])
