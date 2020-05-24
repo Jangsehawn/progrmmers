@@ -1,0 +1,35 @@
+import numpy as np
+arr1=[[1, 4], [3, 2], [4, 1]]
+arr2=[[3, 3], [3, 3]]
+a=np.asmatrix(arr1)
+b=np.asmatrix(arr2)
+c=a*b
+c
+##################3
+mat1=[[1, 4], [3, 2], [4, 1]]
+mat2=[[3, 3], [3, 3]]
+def productMatrix(mat1, mat2):
+    matR = [ len(mat2[0])*[0] for i in range (len(mat1)) ]
+    for i in range (len(matR) ):
+        for j in range ( len(matR[i]) ):
+            for k in range ( len(mat1[i] ) ):
+                matR[i][j] += mat1[i][k]*mat2[k][j]
+    return matR
+productMatrix(mat1, mat2)
+##################
+s="   a   d   "
+def solution(s):
+    a=s.split()
+    answer=''
+    for i in range(len(a)):
+        if s[0]== " ":
+            answer+=' '+a[i].lower()+' '
+        elif len(a[i])==1:
+            answer+=a[i].upper()
+        else:
+            answer+=a[i][0].upper()+a[i][1:].lower()+' '
+    answer=str(answer)
+    if s[-1]==' ':
+        print(answer)
+    else:
+        print(answer.rstrip())
